@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>css 선택자</title>
+  <style>
+    /*후손 선택자*/
+    div span { color: orange; font-weight: bold}
+    div > span > span { color: indianred; font-style: italic}
+    /*자손 선택자
+    ul > li { color: red; font-weight: bold}
+    ul > li li { color: black; }
+    이렇게도 되는데 뭔가 맘에 안듬 더 줄일 수 있는거 같은데*/
+    /*ul > li { color: blue; font-style: italic}
+    /*그룹 선택자 예시*/
+    span,li {background: ivory}
+
+    /*동적의사 선택자 : link, visited, hover, active, focus*/
+    a:link{ color: black; text-decoration: none}
+    a:visited { color: black; text-decoration: none}
+    a:hover {color: orange; text-decoration: underline}
+    a:active {color: red; text-decoration: underline}
+
+    input:hover {background: aliceblue}
+    input:focus {background: lemonchiffon}
+
+    /*상태의사 선택자 : checked, enabled, disabled */
+
+    input:checked {box-shadow: 0 0 0 3px hotpink}
+    input:checked  + label{ color: firebrick; background: yellow}
+
+    /*구조적 의사 선택자 : first-child, last-chaild, nth-child, nth-of-type*/
+    #maker > li { color: purple; background: white}
+    #maker > li:first-child { color: red; background: white}
+    #maker > li:last-child { color: green; background: white}
+    #maker > li:nth-child(3) { color: darkorchid; background: white}
+  </style>
+</head>
+<body>
+    <h1>css 선택자</h1>
+    <h2>조합(결합) 선택자</h2>
+    <p>스타일을 적용할 대상이 하나 이상인 경우에 사용하는 선택자</p>
+
+      <p>후손descendant 선택자 : 해당 요소 아래에 있는
+        모든 하위 요소들을 대상으로 하는 선택자</p>
+      <!--후손 선택자 사용방법 : 상위 선택자 하위선택자 -->
+        <img src="img/combine.png" width="35%" alt="">
+
+        <div>
+          <span>생의 인간의 있음으로써 되는 이상 착목한는 것이다.
+            <span>생의 인간의 있음으로써 되는 이상 착목한는 것이다.
+                이상, 길을 아니한 만물은 타오르고 풀이 우리 쓸쓸하랴?</span>
+            이상, 길을 아니한 만물은 타오르고 풀이 우리 쓸쓸하랴?</span>
+          <span>생의 인간의 있음으로써 되는 이상 착목한는 것이다.
+                이상, 길을 아니한 만물은 타오르고 풀이 우리 쓸쓸하랴?
+            <span>생의 인간의 있음으로써 되는 이상 착목한는 것이다.
+                이상, 길을 아니한 만물은 타오르고 풀이 우리 쓸쓸하랴?</span></span>
+          <span>생의 인간의 있음으로써 되는 이상 착목한는 것이다.
+          이상, 길을 아니한 만물은 타오르고 풀이 우리 쓸쓸하랴?</span>
+        </div>
+
+
+      <p>자손child 선택자 : 해당 요소 직계 아래에 있는
+        하위 요소들을 대상으로 하는 선택자</p>
+    <!--자손 선택자 사용방법 : 상위 선택자 > 하위선택자
+        class를 지정하여 하는것도 방법이다
+        한번 써칭해서 -->
+
+        <ul>
+          <li>한식
+            <ul>
+              <li>비빔밥</li>
+              <li>떡국</li>
+              <li>갈비찜</li>
+              <li>국수</li>
+              <li>타락죽</li>
+            </ul>
+          </li>
+          <li>라면</li>
+          <li>돈까스</li>
+        </ul>
+      <p>그룹 선택자 : 여러 선택자를 혼합해서
+        요소들을 지정할때 사용하는 선택자</p>
+      <!-- 그룹 선택자 사용방법 : 선택자1, 선택자2-->
+
+      <p>인접형제선택자: n번만 이라고 생각하면 된다</p>
+      <!-- ex) ui > li + li -> li의 두번째만 적용-->
+
+      <p>일반형제선택자 : n번이후 전부다 라고 생각하면된다</p>
+      <!-- ex) ul > li ~ li -> li이후 전부다 -->
+      <h2>가상{pseudo:의사} 선택자</h2>
+      <p>특정 태그에 미리 정의된 선택자를 부르는 말</p>
+      <p>동적의사 클래스 선택자 : 마우스 이벤트에 의해 스타일을
+        다르게 적용하고 싶을때 사용하는 선택자</p>
+
+    <a href="https://google.com" >구글로이동</a>
+    <a href="https://naver.com" >네이버로이동</a>
+
+    <input type="text">
+    <input type="password">
+
+      <p>상태의사 클래스 선택자 : 폼의 상태에 따라
+        스타일을 다르게 적용하고 싶을때 사용하는 선택자</p>
+
+    <div><input type="radio"><label>여자</label>
+          <input type="radio"><label>남자</label></div>
+
+      <p>구조적 의사 클래스 선택자 : html 요소의
+        계층적 구조에서 특정 위치에 있는 요소를
+        선택할때 사용하는 선택자</p>
+
+      <ul id="maker">
+        <li>삼성</li>
+        <li>LG</li>
+        <li>애플</li>
+        <li>샤오미</li>
+        <li>블랙베리</li>
+      </ul>
+
+      <p>특정 태그에 미리 정의된 선택자를 부르는 말</p>
+
+</body>
+</html>
