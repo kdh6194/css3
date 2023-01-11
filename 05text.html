@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>css 텍스트 관련 속성</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+      #font p:first-child {
+        font-size: 35px; background: yellow;}
+        /*html 기본 폰트 크기 : 16px(0.42cm)*/
+
+      #font p:nth-child(2) {
+        font-family: 궁서체1, 굴림체; font-size: 20px; background: yellowgreen;}
+      /*font-family: 글꼴체1, 대체글꼴체2, ... */
+
+      #font p:nth-child(3) {
+        font-family: 궁서체; font-size: 20px;
+        background: aliceblue; font-weight: bold;}
+      /*font-weight: bold 또는 normal */
+
+      #font p:nth-child(4) {
+        font-family: 돋움체; font-size: 20px;
+        background: cornsilk; font-style:italic;}
+      /*font-style: italic 등등 */
+
+      #font p:nth-child(5) {
+        font:italic bold 25px 궁서체; background: cornsilk;}
+      /*단축표기 */
+
+      #line p { width: 50%}
+      #line p:first-child { line-height: 180%}
+      #line p:nth-child(2) { line-height: 100%}
+      #line p:last-child { line-height: 80%}
+      /*텍스트 줄간격 : 기본값 = 120% */
+
+      #logo p:first-child { letter-spacing: 20px}
+      #logo p:nth-child(2) {letter-spacing: 10px}
+      #logo p:last-child { letter-spacing: -5px}
+      /*글자간 간격 조정*/
+
+      #logo2 p:first-child { word-spacing: 20px}
+      #logo2 p:nth-child(2) {word-spacing: 10px}
+      #logo2 p:last-child { word-spacing: -5px}
+      /*단어간 간격 조정*/
+
+      #align p:first-child { text-align: right;
+                              border : 1px solid red }
+      #align p:nth-child(2) { text-align: center}
+      #align p:last-child { text-align: left }
+      /*텍스트 수평정렬 : center, right, left*/
+
+      #deco p:first-child { text-decoration: underline;}
+      #deco p:nth-child(2) { text-decoration: overline; }
+      #deco p:last-child { text-decoration: line-through; }
+      /*텍스트 꾸미기 : none, underline, overline, line-through */
+
+  </style>
+</head>
+<body>
+    <h1>css 텍스트 관련 속성</h1>
+    <h2>개요</h2>
+    <p>글꼴 크기, 지정, 스타일, 텍스트의 정렬들을 다룸</p>
+
+    <h2>font-xxx 속성</h2>
+    <p>font-size : 텍스트의 크기 지정</p>
+    <p>font-family : 텍스트의 글꼴 지정</p>
+    <p>font-weight : 텍스트의 진하기 지정</p>
+    <p>font-style : 텍스트의 스타일 지정</p>
+    <p>font-xxx 텍스트 단축 표기 :
+        스타일 대소문자변환 굵기 크기 줄간격 글꼴</p>
+
+    <div id="font">
+      <p>위하여 힘차게 관현악이며, 이것이다. 대한 노년에게서 커다란 굳세게 아름다우냐?</p>
+      <p>아름답고 않는 지혜는 속에 무엇을 가지에 그러므로 아름다우냐?</p>
+      <p>청춘 놀이 우리 끝에 이 원질이 있으며, 넣는 이것이다.</p>
+      <p>가는 구하지 군영과 피가 싶이 같이, 얼마나 뛰노는 황금시대다.</p>
+      <p>우리의 옷을 얼마나 자신과 품고 이것이다.</p>
+      <p>일월과 미묘한 아니더면, 기관과 수 피다. </p>
+    </div>
+
+    <h2>line-height</h2>
+    <p>텍스트의 줄간격 설정</p>
+
+    <div id="line">
+      <p>주는 커다란 황금시대를 할지라도 행복스럽고 타오르고 무엇을 철환하였는가?주는 커다란 황금시대를 할지라도 행복스럽고 타오르고 무엇을 철환하였는가?주는 커다란 황금시대를 할지라도 행복스럽고 타오르고 무엇을 철환하였는가?</p>
+      <p>노래하며 기관과 곧 뼈 이 갑 것이다. 용감하고 천자만홍이 찾아 예가 뼈 끓는다.노래하며 기관과 곧 뼈 이 갑 것이다. 용감하고 천자만홍이 찾아 예가 뼈 끓는다.노래하며 기관과 곧 뼈 이 갑 것이다. 용감하고 천자만홍이 찾아 예가 뼈 끓는다.</p>
+      <p>능히 가지에 안고, 보이는 교향악이다.능히 가지에 안고, 보이는 교향악이다.능히 가지에 안고, 보이는 교향악이다.능히 가지에 안고, 보이는 교향악이다.능히 가지에 안고, 보이는 교향악이다.</p>
+      <p>품고 끓는 청춘은 발휘하기 능히 끓는다.품고 끓는 청춘은 발휘하기 능히 끓는다.품고 끓는 청춘은 발휘하기 능히 끓는다.품고 끓는 청춘은 발휘하기 능히 끓는다.품고 끓는 청춘은 발휘하기 능히 끓는다.</p>
+      <p>온갖 인생을 물방아 위하여 사막이다.온갖 인생을 물방아 위하여 사막이다.온갖 인생을 물방아 위하여 사막이다.온갖 인생을 물방아 위하여 사막이다.온갖 인생을 물방아 위하여 사막이다.온갖 인생을 물방아 위하여 사막이다.</p>
+    </div>
+
+    <h2>letter-spacing</h2>
+    <p>텍스트내 글자 사이 간격 조정</p>
+
+    <div id="logo">
+      <p>Marvel`s Avengers : Infinity War</p>
+      <p>Ant-Man and The Wasp : Quantumania</p>
+      <p>Marvel`s Avengers : Infinity War</p>
+    </div>
+
+    <div id="logo2">
+      <p>Marvel`s Avengers : End Game</p>
+      <p>Ant-Man and The Wasp : Quantumania</p>
+      <p>Marvel`s Avengers : Infinity War</p>
+    </div>
+
+    <h2>text-align</h2>
+    <p>텍스트의 수평방향 정렬 설정</p>
+
+      <div id="align">
+          <p>시간은 금이라구, 친구!</p>
+          <p>시간은 금이라구, 친구!</p>
+          <p>시간은 금이라구, 친구!</p>
+      </div>
+
+    <h2>text-decoration</h2>
+    <p>텍스트에 여러 가지 꾸민 효과를 부여/제거함</p>
+        <div id="deco">
+        <p>시간은 금이라구, 친구!</p>
+        <p>시간은 금이라구, 친구!</p>
+        <p>시간은 금이라구, 친구!</p>
+        </div>
+
+</body>
+</html>
