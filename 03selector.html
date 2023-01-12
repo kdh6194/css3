@@ -6,12 +6,37 @@
   <style>
     /*후손 선택자*/
     /*div span { color: orange; font-weight: bold}
-    div > span > span { color: indianred; font-style: italic}
+    div > span > span { color: indianred; font-style: italic}*/
     /*자손 선택자
     ul > li { color: red; font-weight: bold}
     ul > li li { color: black; }
-    이렇게도 되는데 뭔가 맘에 안듬 더 줄일 수 있는거 같은데*/
-    ol > li + li { color: blue; font-style: italic}
+    자손 선택자가 인식하는 방식은 태그의 순서가아님 태그명 자체이고
+    li에서 첫번째 두번째는 인식하지만 li두번쨰로는 li태그가 모두 적용된다
+    이유 li 태그는 단독적인 객체가 아닌 모든li태그 자체를 하나로 봐야한다
+    그러나 순번은 적용된다
+    ol > li+li  { color: blue; font-style: italic}
+   <ol>
+          <li>한식
+            <ul>
+              <li>백숙
+                <ol>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                </ol>
+              </li>
+              <li>삼계탕</li>
+              <li>닭볶음탕</li>
+            </ul>
+          </li>
+          <li>라면</li>
+          <li>돈까스</li>
+        </ol>
+        라는 조건이면 라면,돈까스,2,3,4이 출력이된다
+        li가 아닌 ol의 조건에서 보면 출력부분이 성립이 된다*/
+
+    ul > li+li  { color: blue; font-style: italic}
     /*그룹 선택자 예시*/
     span,li {background: ivory}
 
@@ -69,16 +94,20 @@
         <ol>
           <li>한식
             <ul>
-              <li>백숙</li>
+              <li>백숙
+                <ol>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                </ol>
+              </li>
               <li>삼계탕</li>
               <li>닭볶음탕</li>
             </ul>
           </li>
           <li>라면</li>
           <li>돈까스</li>
-          <li>쫄면</li>
-          <li>우동</li>
-          <li>카레</li>
         </ol>
 
       <p>그룹 선택자 : 여러 선택자를 혼합해서
