@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>myinfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/project2.css">
+    <style>
+    </style>
+</head>
+<body>
+    <header><h1>JSP 프로젝트 v1</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="join.html">회원가입</a></li>
+                <li><a href="login.html">로그인</a></li>
+                <li><a href="list.html">게시판</a></li>
+                <li><a href="myinfo.html">회원정보</a></li>
+            </ul>
+    </header>
+    <main>
+        <h2>회원정보</h2>
+        <div>
+        <table>
+            <tr>
+                <th>아이디</th>
+                <td rowspan="4"></td>
+                <td><label for="uid"></label>
+                    <input type="text" name="id" id="uid"
+                    readonly value="siestageek"></td>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><label for="name"></label>
+                    <input type="text" name="name" id="name"
+                           readonly value="으하하하"></td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td><label for="email"></label>
+                    <input type="text" name="email" id="email"
+                           readonly value="zzyzigy@naver.com"></td>
+            </tr>
+            <tr>
+                <th>가입일</th>
+                <td><label for="date"></label>
+                    <input type="text" name="date" id="date"
+                           readonly value="20214-05-01 12:01:33"></td>
+            </tr>
+        </table>
+        </div>
+    </main>
+    <footer><div class="copy">Copyright &copy; 2023. All Right Reserved</div></footer>
+<!--<div class="copy">라고 쓰면 가운데로 간다고 한다-->
+</body>
+</html>

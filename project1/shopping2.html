@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>float layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /*body지정후 너비 설정, 중앙 배치, 테두리 표시*/
+        #container { border: 3px solid black; width:950px; margin: 0 auto;}
+        /*header 높이 지정, 테두리 표시 position: relative로 설정*/
+        header {/* border: 1px solid darkred; */height: 100px; }
+        header h1 {background: #cccccc; width: 150px; padding: 12px 0;
+            float:left; text-align: center}
+        header ul { list-style: none; padding: 12px 5px; margin: 0; float: right;
+            }
+        /*li요소 끝에 무엇인가를 작업하려면
+            li:(순번 마크업 없으면 생략가능):after가 들어가야함
+            content: 선택한 요소의 앞이나 뒤에 텍스트,이미지 등을 추가
+                    이미지=>url('이미지파일경로') 텍스트=> ''안에 입력*/
+        header li { float: left; padding: 0 2px; }
+        header li:after {content: ' | '}
+        header li:last-child:after {content: ' '}
+        /* a태그 같은경우 div로 블록을 지정해두면 배치가 편하다*/
+        header div { float: left; margin-top: 70px; margin-left: 5px}
+        /*left,right은 뷰포트 기준이고 top,bottom은 생성된곳을 기준으로함*/
+        /*nav*/
+        .clear {clear: both}
+        nav {/*border: 1px solid #999999;*/ height: 35px; background: #999999; }
+        input {border:1px solid black; width: 350px; padding: 5px; margin:2px 0;}
+        select {border: 1px solid black; padding:2px; margin: 2px 0; text-align: center;}
+        button { border: 1px solid black; border-radius: 3px; background: lightgrey;
+                width: 100px; padding: 5px 0; margin: 2px 0; text-align: center;
+                font-size: 16px; }
+        /*vertical-align*/
+        /*main*/
+        main {border: 1px solid black; position: relative; height: 400px}
+        main table { border: 2px solid black; width: 25%; height: 150px;
+            border-spacing: 0; border-collapse: collapse; float: left }
+        main td {border: thin solid black; border-collapse: collapse}
+        /*table 셀 간격을 붙힘 = table { border-spacing: 0; border-collapse: separate}
+            셀 간격 조절 = table { border-spacing: 원하는 간격값;}
+            margin, padding을*/
+        main #ad {position: absolute; top: 0; right: 0; width: 75%; height: 150px; float: right}
+        #ad1 {position: absolute; top: 0; right: 0; z-index:99;}
+        #ad2 {position: absolute; top: 0; right: 0; z-index:95;}
+        #ad3 {position: absolute; top: 0; right: 0; z-index:92;}
+        #ad4 {position: absolute; top: 0; right: 0; z-index:90;}
+        #ad5 {display:inline-block; border: 3px solid black; width: 735px; height: 50px;
+            position: absolute; top: 0; right: 0; z-index:100; text-align: center;
+            padding: 80px 0;}
+        #today {height: 200px; float: left}
+        /*수직정렬, 첫번째 메뉴 마진 설정, 머릿글 마진설정*/
+        footer {border-top: 1px solid black}
+        footer ul {list-style: none; display: inline-block; vertical-align: top;}
+        footer ul:nth-of-type(1) {margin-left: 12px}
+        footer ul li:nth-of-type(1) h3 {margin: 0;}
+
+        footer div {text-align: center; margin-top: 35px; border-top: 1px solid black;
+                    padding: 7px}
+    </style>
+    <!-- 상대주소로 최상위로 위치를 잡으려는 경우
+        ../경로 를 입력하면된다 (굳이 파일경로를 만들고 그 안에 복사할 필요가 없다)-->
+</head>
+<body>
+        <div id="container">
+            <header>
+                <h1>LOGO</h1>
+                <ul>
+                    <li>contact</li>
+                    <li>store locator</li>
+                    <li>support</li>
+                    <li>CART</li>
+                </ul>
+                <div>
+                <a href="#">log in</a> or
+                <a href="#">Create Account</a>
+                </div>
+            </header>
+            <nav class="clear">
+                <div>
+                    <label>
+                    <input type="text">
+                    <select name="category">
+                        <option>&nbsp;category&nbsp;</option>
+                        <option>&nbsp;&nbsp;all category&nbsp;&nbsp;</option>
+                        <option>category1</option>
+                        <option>category2</option>
+                        <option>category3</option>
+                        <option>category4</option>
+                        <option>category5</option>
+                        <option>category6</option>
+                    </select></label>
+                    <button type="button">SEARCH</button>
+                </div>
+            </nav>
+            <main>
+                <section>
+                        <table>
+                            <tr><td>All catagories</td></tr>
+                            <tr><td>category1</td></tr>
+                            <tr><td>category2</td></tr>
+                            <tr><td>category3</td></tr>
+                            <tr><td>category4</td></tr>
+                            <tr><td>category5</td></tr>
+                            <tr><td>category6</td></tr>
+                        </table>
+                    <div id="ad">
+                        <a href="#" id="ad1">
+                        <img src="img/Slides/img2.jpg" alt=""  width="740px">
+                            <span>1</span></a>
+                        <a href="#" id="ad2">
+                        <img src="img/Slides/img3.jpg" alt="" width="740px">
+                            2</a>
+                        <a href="#" id="ad3">
+                            <img src="img/Slides/img2.jpg" alt="" width="740px">
+                            3</a>
+                        <a href="#" id="ad4">
+                            <img src="img/Slides/img3.jpg" alt="" width="740px">
+                            4</a>
+                        <span id="ad5">[PROMOTIONAL IMAGES ROTATE HERE]</span>
+                    </div>
+                    <div class="clearfix2"></div>
+                    <div id="today">
+                        <h3>Today`s Specials</h3>
+                        <a href="#">
+                            <img src="img/Footer/sns3.jpg" alt="">
+                            project1</a>
+                        <a href="#">
+                            <img src="img/Footer/sns3.jpg" alt="">
+                            project2</a>
+                        <a href="#">
+                            <img src="img/Footer/sns3.jpg" alt="">
+                            project3<</a>
+                        <a href="#">
+                            <img src="img/Footer/sns3.jpg" alt="">
+                            <span>project4</span></a>
+                        <a href="#">
+                            <img src="img/Footer/sns3.jpg" alt="">
+                            <span>project5</span></a>
+                        <a href="#">
+                            <img src="img/Footer/sns3.jpg" alt="">
+                            <span>project6</span></a>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <ul><li><h3>ABOUT US</h3></li>
+                    <li>Company</li>
+                    <li>News</li>
+                    <li>Jobs</li>
+                    <li>Policies</li>
+                    <li>Contact</li>
+                </ul>
+                <ul><li><h3>SOCIAL</h3></li>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Try our app</li>
+                </ul>
+                <ul><li><h3>SERVICE</h3></li>
+                    <li>FAQ</li>
+                    <li>Live support</li>
+                    <li>Site map</li>
+                </ul>
+                <div>Copyright &copy; 2023. All Right Reserved</div>
+            </footer>
+        </div>
+</body>
+</html>
