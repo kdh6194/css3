@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
     <style>
-        #container { width: 1200px; margin: 0 auto; border: 1px solid red; }
+        #container { width: 1200px; margin: 0 auto; border: 1px solid black; }
         header { height: 100px; background: #cccccc; }
         h1 {margin: 0;}
 
@@ -24,23 +24,37 @@
         .none {display: none;}
 
         /*텍스트 옮기기*/
-        /*flex나grid가 좋으나 아직 미흡해서 공부좀 하고 써야지*/
         a:link {color: white; text-decoration: none; font-weight: bold; position: relative}
         .rotateimg a span { background: rgba(100,100,100,0.5); padding: 5px 15px; font-size: 20px;
         position: absolute; top:0; left: 480px;}
         /*opacity를 쓰면 글자랑 배경이랑 같이 흐려지는데
         rgba를 사용하면 해당 글자나 배경색을 흐르게 만들 수 있다*/
-
+        /*flex나grid가 좋으나 아직 미흡해서 공부좀 하고 써야지*/
+        /*flex는 일차원으로만 이동이 가능하고
+        grid는 이차원으로 이동이 가능하다
+         */
         section:last-child {height: 200px}
 
         .notice, .gallery, .golink { width: 400px}
+        .notice h4, .gallery h4 { font-size: 20px; border-bottom: 3px solid orange;
+            padding-bottom: 10px; margin: 10px 10px; }
         .notice {float:left}
+
+        table {width: 380px; border-collapse: collapse; margin: 0 auto;}
+        table tr:nth-of-type(odd) {background: ivory}
+        table tr:nth-of-type(even) {background: orange}
+        table td { padding: 10px 0;}
+        table td:last-child { text-align: right;}
+
+
         .gallery {float:left}
-        .gallery ul {}
-        .gallery ul li{ display: inline-block}
+        .gallery ul { list-style: none; margin: 0 0 0 10px; padding: 0;}
+        .gallery ul li{ display: inline-block; padding: 12px}
+
         .golink {float:right; position: relative; }
         .golink a span {background: rgba(100,100,100,0.5); padding: 5px 10px;
-            font-size: 20px; position: absolute;}
+            font-size: 16px; position: absolute; color: white ;top: 0; left: 150px}
+        /*포지션에 relative랑 absolute을 사용할 때 top이랑 left값이 있어야 적용됨 */
         /*수직정렬*/
         footer {height: 100px; background: #cccccc;}
         .copy { width: 600px; text-align: center; font-weight: bold;
@@ -52,6 +66,8 @@
                 padding: 5px 10px;}
 
         .site {width: 230px; margin: 0 0 0 13px;}
+
+
     </style>
 
 </head>
@@ -132,7 +148,8 @@
                       <li><img src="img/Contents/gallery3.jpg" alt=""></li>
                   </ul>
               </div>
-              <div class="golink"><h4>바로가기</h4>
+                <h4>바로가기</h4>
+                <div class="golink">
                   <a href="#">
                       <img src="img/Contents/shortcut.jpg" alt="여행사진" >
                       <span>바로가기</span></a>
