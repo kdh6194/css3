@@ -1,8 +1,8 @@
 /*페이지 공통*/
 #wrapper {width: 960px; margin: 0 auto;}
-li {float: left; margin: 0 45px;
+nav li {float: left; margin: 0 45px;
     text-align: center; width: 10%; list-style: none;}
-nav {border-bottom: 1px solid black; height: 50px}
+nav ul{border-bottom: 1px solid black; height: 50px}
 footer { border-top: 1px solid black}
 a:link { color:black; text-decoration: none; font-weight: bold}
 a:hover {color: red; text-decoration: underline}
