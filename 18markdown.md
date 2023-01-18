@@ -144,7 +144,7 @@ a<sup>2</sup> = b<sup>2</sup> + c<sup>2</sup><br>
 * 자세한 문법은 https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:TeX_%EB%AC%B8%EB%B2%95 를 참고
 ---
 $ a = b + c $
-$ a^2 = b^2 + c^2 $
+$a^2 = b^2 + c^2$
 
 
 
