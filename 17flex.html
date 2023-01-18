@@ -16,6 +16,43 @@
         a:hover {color: lightgreen;}
         a:active {color: darkgreen; text-decoration: underline}
         /*기존 항목과 마지막 항목간의 배치방식의 따라 마진을 자동으로 설정*/
+
+        .container1 { background: indigo; height: 200px; width: 100%; display: flex;
+           align-items: center; justify-content: space-around; }
+        .item1 {background: #34005b; height: 100px; width: 200px; color: #e4f7ba;}
+
+        .container2 {background: indigo; display: flex; flex-direction: column; align-items: stretch;}
+        .item2 { padding: 16px; min-height: 100px; display: flex; align-items: center;}
+        header { background: #105b63; order:1}
+        main { background: #fffad5; order:2}
+        aside { background: #ffd34e; order:3}
+        aside.aside { background: #db9e36; order: 4}
+        footer { background: #bd4932; order: 5}
+        /*width : 고정크기, 내용이 많으면 자동 줄바꿈
+        flex-basis : 가변크기, 내용이 많으면 자동 크기 연장*/
+        .container3 { background: indigo; height: 100px; width: 100%; display: flex;
+            align-items: center; }
+        /*flex-grow : flex-basis를 제외한 여백부분을 지정된 숫자의 비율로 나눠가짐
+        그러므로 flex-basis의 영향을 받는다 생각해야됨*/
+        .item3 {background: #34005b; height: 80px; /*width: 200px;*/ color: #e4f7ba;
+            margin: 5px; flex : 1 0 230px;/*flex-basis: 230px;flex-grow: 1; flex-shrink: 1*/}
+        /*flex-shrink : 항목의 내용을 기준으로 항목의 너비를 비율로 표시
+           얘도 flex-basis의 영향을 받는다*/
+        /*basis, grow, shrink 는 축약으로 작성가능 단위는 px,%,rem,content가 적용됨
+            순서는 flex: grow, shrink, basis로 정의해야함*/
+        /*holy grail layout 만들기
+        flex-wrap : 항목이 뷰포트를 벗어날때 overflow의 처리
+           wrap, nowrap, wrap-reverse*/
+        /*direction과 wrap을 축약가능
+            flex-flow = 배치방향 줄바꿈*/
+        .container4 {display: flex; /*flex-direction: row; flex-wrap: wrap;*/
+            flex-flow: row wrap;}
+        .hdr { flex : 0 0 100%; order: 1}
+        .ftr { flex : 0 0 100%; order: 5}
+        .asd1 { flex : 0 0 40%; order: 2}
+        .main { flex : 1 0 20%; order: 3}
+        .asd2 { flex : 0 0 40%; order: 4}
+
   </style>
 </head>
 <body>
@@ -34,8 +71,7 @@
 
       <h2>수직적으로 텍스트 정렬하기</h2>
 
-      <p>flex-direction : 메인축을 기준으로 아이템을 어떻게 배치할 것인지 결정
-          - row, row-reverse, column, column-reverse</p>
+
       <p>display:flex = flex컨테이너에 flex박스 레이아웃 적용 시작</p>
       <p>align-items = 수직축(크로스축)을 기준으로 아이템들을 정렬함</p>
       <p>justify-content = 수평축(메인축)을 기준으로 아이템들을 정렬함</p>
@@ -45,6 +81,9 @@
       <div class="centerme">hello, flexbox layout</div>
 
       <h2>header 메뉴 배치하기</h2>
+      <p>flex-direction : 메인축을 기준으로 아이템을 어떻게 배치할 것인지 결정
+          - row, row-reverse, column, column-reverse</p>
+
       <header class="menus">
           <a href="#" class="item">home</a>
           <a href="#" class="item">about us</a>
@@ -52,5 +91,67 @@
           <a href="#" class="item">policy</a>
           <a href="#" class="lastitem">contact us</a>
       </header>
+
+<h2>flex item배치하기</h2>
+<p>flex 컨테이너 내에 포함된 항목들을 일정 간격으로 배치하려면
+    justify-content 속성을 사용</p>
+<p>space-between : 항목들 사이에 일정한 간격으로 배치</p>
+<p>space-around : 항목들 주위에 일정한 간격으로 배치</p>
+<p>space-evenly : 항목들 양끝에 일정한 간격으로 배치</p>
+
+      <div class="container1">
+          <div class="item1">item1</div>
+          <div class="item1">item2</div>
+          <div class="item1">item3</div>
+      </div>
+
+      <h2>항목순서 지정하기</h2>
+      <p>각 항목들의 시각적 나열 순서를 결정할때는
+        order 라는 속성 이요</p>
+      <p>숫자값이 낮을수로 앞(먼저)에 배치되고
+        크면 뒤(나중)에 배치됨</p>
+
+      <div class="container2">
+          <!--<header class="item2">header</header>
+          <aside class="item2">side1</aside>
+          <main class="item2">content</main>
+          <aside class="item2 aside">side2</aside>
+          <footer class="item2">footer</footer>
+          정상 코드-->
+          <aside class="item2 aside">side2</aside>
+          <aside class="item2">side1</aside>
+          <main class="item2">content</main>
+          <footer class="item2">footer</footer>
+          <header class="item2">header</header>
+          <!--실수한 코드 = order: 순서(숫자만 인식) 코드 막쓰다 실수하면 요걸로 커버하면됨-->
+      </div>
+
+      <h2>항목들 크기 자유자재로 다루기</h2>
+
+      <div class="container3">
+          <div class="item3">item one</div>
+          <div class="item3">item twotwotwotwotwotwotwo</div>
+          <div class="item3">item three</div>
+      </div>
+
+      <h2>grow, basis 적용하기</h2>
+      <p></p>
+      <p></p>
+
+      <div class="container4">
+      <header class="item4 hdr">header</header>
+          <aside class="item4 asd1">side1</aside>
+          <main class="item4 main">content</main>
+          <aside class="item4 asd2">side2</aside>
+          <footer class="item4 ftr">footer</footer>
+      </div>
+
+      <h2></h2>
+      <p></p>
+      <p></p>
+      <!--긴문장을 밑으로 보내려면 word-wrap:break-word; 쓰면 됨-->
+        <!--align-self : 수직축 아이템정렬 stretch,flex-start,flex-end,center,baseline
+        align-content : 여러행 정렬(wrap이 설정된 상태에서 아이템의 행이 2줄이상되었을때)
+        stretch,flex-start,flex-end,center,space-between,space-around,space-evenly-->
 </body>
 </html>
